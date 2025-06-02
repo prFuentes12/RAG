@@ -31,10 +31,9 @@ def cargar_usuarios_desde_json(json_path):
 
         contenido = (
             f"Perfil profesional:\n"
-            f"Profesión: {user['profesion']}.\n"
-            f"Especialidad: {user['especialidad']}.\n"
-            f"Palabras clave en base a sus áreas de experiencia o conocimientos: {', '.join(palabras)}.\n"
-            f"Biografía: {user['biografia']}.\n"
+            f"Profesión: {user['profesion']} especializado en {user['especialidad']}. "
+            f"{user['biografia'].strip()} "
+            f"Tiene experiencia o conocimiento en temas/áreas como: {', '.join(palabras)}."
         )
 
         metadata = {
