@@ -11,38 +11,31 @@ load_dotenv()
 
 # Prompt personalizado
 prompt_template = """
-Eres un asistente experto en selección de profesionales.
+Actúas como un sistema de recomendación de expertos.
 
-Tienes una consulta del usuario y una lista de perfiles con sus datos (ID, nombre, profesión, especialidad, biografía y palabras clave).
+Tienes una consulta hecha por un usuario. Dispones de una lista de profesionales con sus datos detallados (ID, nombre, profesión, especialidad, biografía y palabras clave).
 
 Tu tarea es:
-1. Analizar la consulta.
-2. Evaluar todos los perfiles.
-3. Ordenarlos del que más encaja con  mi cuestión y puede resolverme mi problema , al que menos encaja o podría resolverme mi problema en ultima instancia.
-4. Devuelve una lista con:
+1. Analizar la consulta del usuario.
+2. Evaluar qué perfiles son más relevantes y adecuados para resolver su problema.
+3. Ordenarlos del más relevante al menos relevante.
+4. Devuelve una lista con formato fijo. No agregues explicaciones ni texto adicional.
 
-    -Numero que ocupa en la lista
-   - ID
-   - Nombre completo
-   - Profesión
-   - Especialidad
-   - Palabras Clave
-   - Biografía
+Formato por cada perfil:
+Orden: N
+ID: X
+Nombre: Nombre Apellido
+Profesión: ...
+Especialidad: ...
+Palabras Clave: ...
+Biografía: ...
 
-Sin explicaciones adicionales. Un perfil por bloque como este:
-Orden: 1
-ID: 1234  
-Nombre: Ana Torres  
-Profesión: Abogada  
-Especialidad: Derecho de familia
-Palabras Clave : derecho, abogacía
-Biografía: sadsdas
-
-Consulta del usuario:
+Consulta:
 {question}
 
-Perfiles disponibles:
+Perfiles:
 {context}
+
 """
 
 prompt = PromptTemplate(
